@@ -12,45 +12,50 @@
   <body>
     <div class="app-shell">
       <header class="topbar">
-        <div>
-          <p class="eyebrow">다이어트 식단 관리</p>
-          <h1>Health Tracker</h1>
+        <div class="brand">
+          <div class="brand-mark" aria-hidden="true">✦</div>
+          <div>
+            <p class="eyebrow">Daily wellness</p>
+            <h1>오늘도 가볍고 건강하게</h1>
+            <p class="hero-copy">한 끼씩 기록하며 나만의 건강한 리듬을 만들어보세요.</p>
+          </div>
         </div>
         <div class="target-badge">
-          <span>목표</span>
-          <strong>1,800 kcal</strong>
+          <span>오늘의 목표</span>
+          <strong>1,800 <small>kcal</small></strong>
+          <em>꾸준함이 가장 좋은 습관이에요</em>
         </div>
       </header>
 
       <main class="content-grid">
         <section class="panel overview-panel">
           <div class="panel-header">
-            <h2>오늘의 요약</h2>
+            <div><p class="section-kicker">Daily report</p><h2>오늘의 요약</h2></div>
             <button class="ghost-btn" id="resetDataBtn">초기화</button>
           </div>
 
           <div class="stats-grid">
             <article class="stat-card accent">
-              <span>섭취 칼로리</span>
+              <i aria-hidden="true">🔥</i><span>섭취 칼로리</span>
               <strong id="totalCalories">0 kcal</strong>
             </article>
             <article class="stat-card">
-              <span>단백질</span>
+              <i aria-hidden="true">💪</i><span>단백질</span>
               <strong id="totalProtein">0 g</strong>
             </article>
             <article class="stat-card">
-              <span>수분</span>
+              <i aria-hidden="true">💧</i><span>수분</span>
               <strong id="waterAmount">0 L</strong>
             </article>
             <article class="stat-card">
-              <span>남은 칼로리</span>
+              <i aria-hidden="true">🌿</i><span>남은 칼로리</span>
               <strong id="remainingCalories">1,800 kcal</strong>
             </article>
           </div>
 
           <div class="progress-box">
             <div class="progress-label-wrap">
-              <span>오늘의 식단 달성률</span>
+              <span>목표를 향해 차근차근</span>
               <strong id="progressPercent">0%</strong>
             </div>
             <div class="progress-bar">
@@ -61,7 +66,7 @@
 
         <section class="panel form-panel">
           <div class="panel-header">
-            <h2>식단 추가</h2>
+            <div><p class="section-kicker">Add meal</p><h2>식단 추가</h2></div>
           </div>
 
           <form id="mealForm">
@@ -96,13 +101,13 @@
               </label>
             </div>
 
-            <button type="submit" class="primary-btn">식단 등록</button>
+            <button type="submit" class="primary-btn"><span>＋</span> 식단 등록하기</button>
           </form>
         </section>
 
         <section class="panel water-panel">
           <div class="panel-header">
-            <h2>물 섭취</h2>
+            <div><p class="section-kicker">Hydration</p><h2>물 섭취</h2></div>
           </div>
 
           <div class="water-ui">
@@ -118,7 +123,7 @@
 
         <section class="panel list-panel">
           <div class="panel-header">
-            <h2>오늘의 식단 기록</h2>
+            <div><p class="section-kicker">Meal log</p><h2>오늘의 식단 기록</h2></div>
           </div>
           <ul id="mealList" class="meal-list"></ul>
         </section>
