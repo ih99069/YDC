@@ -1,13 +1,13 @@
 :root {
-  --bg: #f4f8f5;
+  --bg: #f3f6ef;
   --panel: #ffffff;
-  --primary: #3da77a;
-  --primary-dark: #2f8c68;
-  --accent: #eafaf1;
-  --text: #1e2d2c;
-  --muted: #6f7e7c;
-  --border: #dfece5;
-  --shadow: 0 16px 32px rgba(26, 64, 50, 0.08);
+  --primary: #5b9b70;
+  --primary-dark: #337051;
+  --accent: #eef8ed;
+  --text: #20302a;
+  --muted: #748078;
+  --border: #e3e9df;
+  --shadow: 0 20px 60px rgba(52, 87, 66, 0.10);
   --warning: #ffb15d;
 }
 
@@ -19,7 +19,10 @@ body {
   margin: 0;
   min-height: 100vh;
   font-family: "Noto Sans KR", sans-serif;
-  background: linear-gradient(135deg, #eef9f3 0%, #f7faf7 100%);
+  background:
+    radial-gradient(circle at 8% 3%, rgba(255, 210, 154, 0.32), transparent 25rem),
+    radial-gradient(circle at 92% 18%, rgba(139, 194, 161, 0.26), transparent 28rem),
+    linear-gradient(145deg, #f9f6ef 0%, #eef6ef 52%, #f8faf5 100%);
   color: var(--text);
 }
 
@@ -32,19 +35,58 @@ select {
 .app-shell {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 32px 20px 48px;
+  padding: 40px 24px 64px;
 }
 
 .topbar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 24px;
+  margin-bottom: 28px;
+  padding: 34px 38px;
+  overflow: hidden;
+  position: relative;
+  color: #fff;
+  border-radius: 32px;
+  background: linear-gradient(125deg, #274f3e 0%, #4d8c68 58%, #77ae82 100%);
+  box-shadow: 0 24px 60px rgba(42, 91, 65, 0.22);
+}
+
+.topbar::after {
+  content: "";
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  right: -90px;
+  top: -165px;
+  border-radius: 50%;
+  border: 46px solid rgba(255, 255, 255, 0.07);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  position: relative;
+  z-index: 1;
+}
+
+.brand-mark {
+  display: grid;
+  place-items: center;
+  width: 58px;
+  height: 58px;
+  flex: 0 0 58px;
+  border-radius: 19px;
+  font-size: 1.5rem;
+  background: rgba(255,255,255,.16);
+  border: 1px solid rgba(255,255,255,.2);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.25);
 }
 
 .eyebrow {
   margin: 0 0 8px;
-  color: var(--primary-dark);
+  color: #d6f2de;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -53,18 +95,29 @@ select {
 
 h1 {
   margin: 0;
-  font-size: clamp(2rem, 2.4vw, 3rem);
+  font-size: clamp(1.8rem, 3vw, 2.65rem);
+  letter-spacing: -0.04em;
+}
+
+.hero-copy {
+  margin: 9px 0 0;
+  color: rgba(255,255,255,.76);
+  font-size: .92rem;
 }
 
 .target-badge {
   display: flex;
   flex-direction: column;
-  background: rgba(61, 167, 122, 0.08);
-  color: var(--primary-dark);
-  border: 1px solid rgba(61, 167, 122, 0.18);
-  border-radius: 18px;
-  padding: 12px 18px;
-  text-align: center;
+  position: relative;
+  z-index: 1;
+  min-width: 210px;
+  background: rgba(255,255,255,.13);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,.18);
+  border-radius: 22px;
+  padding: 17px 21px;
+  text-align: left;
+  backdrop-filter: blur(8px);
 }
 
 .target-badge span {
@@ -73,7 +126,20 @@ h1 {
 }
 
 .target-badge strong {
-  font-size: 1.2rem;
+  font-size: 1.55rem;
+  letter-spacing: -.03em;
+}
+
+.target-badge strong small { font-size: .72rem; font-weight: 500; }
+.target-badge em { margin-top: 5px; font-size: .7rem; font-style: normal; opacity: .66; }
+
+.section-kicker {
+  margin: 0 0 3px;
+  color: var(--primary);
+  font-size: .67rem;
+  font-weight: 800;
+  letter-spacing: .12em;
+  text-transform: uppercase;
 }
 
 .content-grid {
@@ -85,8 +151,8 @@ h1 {
 .panel {
   background: var(--panel);
   border: 1px solid var(--border);
-  border-radius: 26px;
-  padding: 22px;
+  border-radius: 28px;
+  padding: 26px;
   box-shadow: var(--shadow);
 }
 
@@ -143,14 +209,19 @@ h1 {
 }
 
 .stat-card {
+  position: relative;
   padding: 18px 16px;
   border-radius: 18px;
-  background: #f7faf8;
+  background: linear-gradient(145deg, #fbfcfa, #f4f8f4);
   border: 1px solid var(--border);
+  transition: transform .2s ease, box-shadow .2s ease;
 }
 
+.stat-card:hover { transform: translateY(-3px); box-shadow: 0 12px 25px rgba(45,80,60,.08); }
+.stat-card i { display: block; margin-bottom: 13px; font-size: 1.3rem; font-style: normal; }
+
 .stat-card.accent {
-  background: var(--accent);
+  background: linear-gradient(145deg, #eaf8eb, #f5fbf2);
   border-color: rgba(61, 167, 122, 0.2);
 }
 
@@ -190,7 +261,7 @@ h1 {
 .progress-fill {
   height: 100%;
   width: 0;
-  background: linear-gradient(90deg, var(--primary) 0%, #7ad0a7 100%);
+  background: linear-gradient(90deg, var(--primary-dark) 0%, #80bd86 100%);
   border-radius: inherit;
   transition: width 0.3s ease;
 }
@@ -221,9 +292,9 @@ input,
 select {
   width: 100%;
   border: 1px solid var(--border);
-  border-radius: 12px;
+  border-radius: 14px;
   background: #fbfdfc;
-  padding: 12px 14px;
+  padding: 13px 15px;
   color: var(--text);
 }
 
@@ -239,7 +310,8 @@ select:focus {
   background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
   color: white;
   font-weight: 700;
-  padding: 14px 18px;
+  padding: 15px 18px;
+  box-shadow: 0 12px 22px rgba(51,112,81,.2);
 }
 
 .water-ui {
@@ -253,10 +325,11 @@ select:focus {
   position: relative;
   width: 120px;
   height: 150px;
-  border: 4px solid rgba(61, 167, 122, 0.35);
+  border: 4px solid rgba(91, 155, 112, 0.28);
   border-radius: 26px 26px 34px 34px;
   overflow: hidden;
-  background: linear-gradient(180deg, #f3f9f6 0%, #eaf5ef 100%);
+  background: linear-gradient(180deg, #f8fbfa 0%, #e8f2ef 100%);
+  box-shadow: inset 0 4px 20px rgba(38,86,69,.08), 0 12px 28px rgba(44,94,77,.10);
 }
 
 .water-bottle::before {
@@ -313,11 +386,14 @@ select:focus {
   justify-content: space-between;
   gap: 12px;
   align-items: center;
-  background: #f8fbf9;
+  background: #fbfcfa;
   border: 1px solid var(--border);
   border-radius: 14px;
-  padding: 12px 14px;
+  padding: 14px 16px;
+  transition: border-color .2s ease, transform .2s ease;
 }
+
+.meal-item:hover { transform: translateX(3px); border-color: #bcd7c2; }
 
 .meal-meta {
   display: flex;
@@ -367,7 +443,13 @@ select:focus {
     flex-direction: column;
     align-items: flex-start;
     gap: 16px;
+    padding: 27px 22px;
   }
+
+  .brand { align-items: flex-start; }
+  .brand-mark { width: 48px; height: 48px; flex-basis: 48px; border-radius: 15px; }
+  .target-badge { width: 100%; }
+  .panel { padding: 20px; border-radius: 22px; }
 
   .water-ui {
     flex-direction: column;
